@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.Map;
 
-public class JsonSaver {
+public class JsonConverter {
     public void save(Map<String, String> jsonString){
         File folder = new File(jsonString.get("directory"));
         if (!folder.exists()) {

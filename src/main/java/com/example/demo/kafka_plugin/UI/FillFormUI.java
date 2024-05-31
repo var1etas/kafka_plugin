@@ -1,4 +1,4 @@
-package com.example.demo.kafka_plugin.service;
+package com.example.demo.kafka_plugin.UI;
 
 import javax.swing.*;
 
@@ -12,10 +12,11 @@ public class FillFormUI {
 
     public Map<String, String> getMap(){
         JFrame f = new JFrame("ExerciseOptions v1.0");
+        //JTextArea topics = new JTextArea("Enter topic");
         JTextField topics = new JTextField();
         JTextField headers = new JTextField();
         JTextField message = new JTextField();
-        String description = "Please enter topics, headers and message.";
+        //String description = "Please enter topics, headers and message.";
         JFileChooser chooser = new JFileChooser();
         chooser.setApproveButtonText("New file");
 
@@ -29,13 +30,13 @@ public class FillFormUI {
             System.out.println(topics.getText() +
                     " " + headers.getText() +
                     " " + message.getText() +
-                    " " + chooser.getSelectedFile().toString());
+                    " " + chooser.getCurrentDirectory().getPath());
 
         Map<String, String> fillField = new LinkedHashMap<>();
         fillField.put("topics", topics.getText());
         fillField.put("headers", headers.getText());
         fillField.put("message", message.getText());
-        fillField.put("directory", chooser.getSelectedFile().toString());
+        fillField.put("directory", chooser.getCurrentDirectory().getPath());
 
         return fillField;
     }

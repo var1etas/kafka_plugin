@@ -52,7 +52,9 @@ ext["kafka.version"] = "3.5.0"
 ext["spring-kafka.version"] = "3.1.4"
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter")
+    implementation("org.springframework.kafka:spring-kafka:3.2.0")
     implementation("org.apache.kafka:kafka-streams")
     implementation("com.google.code.gson:gson:2.10.1")
     implementation("org.springframework.kafka:spring-kafka")
+    implementation("org.springframework.boot:spring-boot-starter-web")
 }
