@@ -1,1 +1,1 @@
-![kafka-plugin](https://drive.usercontent.google.com/download?id=1xuHpTRvp-A4Iqo0Ehvc3AiSCYA2f2XAz&export=download&authuser=0&confirm=t&uuid=96a198ba-0bf9-4f73-b60a-baf35645fa29&at=APZUnTVciLMSzLUYenuhm0ImuIBu:1717185243446)
+[kafka-plugin](https://drive.usercontent.google.com/download?id=1xuHpTRvp-A4Iqo0Ehvc3AiSCYA2f2XAz&export=download&authuser=0&confirm=t&uuid=96a198ba-0bf9-4f73-b60a-baf35645fa29&at=APZUnTVciLMSzLUYenuhm0ImuIBu:1717185243446)
