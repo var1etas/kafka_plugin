@@ -21,6 +21,5 @@ public class FormChangerUI {
                 "Send message", JOptionPane.DEFAULT_OPTION,
                 JOptionPane.PLAIN_MESSAGE,
                 null, new Object[] {fillForm, sendForm}, null);
-
     }
 }

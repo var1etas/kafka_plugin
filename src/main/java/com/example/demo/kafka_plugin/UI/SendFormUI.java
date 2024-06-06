@@ -1,6 +1,7 @@
 package com.example.demo.kafka_plugin.UI;
 
-import com.example.demo.kafka_plugin.service.SendMessage;
+import com.example.demo.kafka_plugin.service.MessageConverter;
+import com.example.demo.kafka_plugin.service.Producer;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -8,7 +9,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 
 public class SendFormUI {
-    SendMessage message = new SendMessage();
+    MessageConverter messageConverter = new MessageConverter();
 
     public void showForm() {
         JFrame sendForm = new JFrame();
@@ -22,7 +23,7 @@ public class SendFormUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println(chooser.getSelectedFile().toString());
-                message.send(chooser.getSelectedFile());
+                new Producer().SendMessage(messageConverter.read(chooser.getSelectedFile()));
             }
         });
 
