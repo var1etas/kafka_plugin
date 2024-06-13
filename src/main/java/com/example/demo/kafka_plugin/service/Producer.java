@@ -18,7 +18,7 @@ public class Producer {
 
         var v = Thread.currentThread().getContextClassLoader();
         Thread.currentThread().setContextClassLoader(null);
-        KafkaProducer<String, String> producer = new KafkaProducer<String, String>(props);
+        KafkaProducer<String, String> producer = new KafkaProducer<>(props);
         Thread.currentThread().setContextClassLoader(v);
         producer.send(record);
     }
