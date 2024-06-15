@@ -22,13 +22,18 @@
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-
+        <applicationConfigurable parentId="tools" instance="com.example.demo.kafka_plugin.service.settings.AppSettingsConfigurable"
+                                 id="org.intellij.sdk.settings.AppSettingsConfigurable"
+                                 displayName="Kafka_plugin: Server port"/>
+        <applicationService serviceImplementation="com.example.demo.kafka_plugin.service.settings.AppSettingsState"/>
     </extensions>
     <actions>
         <action id="com.example.demo.kafka_plugin.SendAction" class="com.example.demo.kafka_plugin.SendAction"
                 text="action_1" description="test_action_1">
             <keyboard-shortcut keymap="$default" first-keystroke="ctrl BACK_SLASH"
                                second-keystroke="ctrl CLOSE_BRACKET"/>
+
         </action>
+
     </actions>
 </idea-plugin>

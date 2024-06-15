@@ -4,6 +4,7 @@ plugins {
     id("org.jetbrains.intellij") version "1.16.1"
     id("org.springframework.boot") version "3.2.3"
     id("io.spring.dependency-management") version "1.0.8.RELEASE"
+    id("io.freefair.lombok") version "8.6"
 }
 
 group = "com.example.demo"
@@ -58,4 +59,5 @@ dependencies {
     implementation("com.google.code.gson:gson:2.10.1")
     implementation("org.springframework.kafka:spring-kafka")
     implementation("org.springframework.boot:spring-boot-starter-web")
+
 }
