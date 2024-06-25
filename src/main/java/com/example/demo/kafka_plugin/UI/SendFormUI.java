@@ -4,8 +4,6 @@ import com.example.demo.kafka_plugin.service.MessageConverter;
 import com.example.demo.kafka_plugin.service.Producer;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 
 public class SendFormUI {
@@ -19,12 +17,9 @@ public class SendFormUI {
         chooser.setCurrentDirectory(new File(dir));
         JButton send = new JButton("Send");
 
-        send.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println(chooser.getSelectedFile().toString());
-                new Producer().SendMessage(messageConverter.read(chooser.getSelectedFile()));
-            }
+        send.addActionListener(e -> {
+            System.out.println(chooser.getSelectedFile().toString());
+            new Producer().SendMessage(messageConverter.read(chooser.getSelectedFile()));
         });
 
         int result = JOptionPane.showOptionDialog(sendForm,

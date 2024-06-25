@@ -35,5 +35,4 @@ public class AppSettingsComponent {
     public void setServerPort(@NotNull String newText) {
         myUserNameText.setText(newText);
     }
-
 }

@@ -1,3 +1,4 @@
+
 package com.example.demo.kafka_plugin.service.settings;
 
 import com.intellij.openapi.application.ApplicationManager;

@@ -1,15 +1,10 @@
 package com.example.demo.kafka_plugin.UI;
 
-import com.intellij.ui.table.JBTable;
-
+import com.intellij.ui.components.JBBox;
 import javax.swing.*;
-import javax.swing.plaf.LabelUI;
-import javax.swing.table.TableColumn;
-import javax.swing.text.DefaultStyledDocument;
-import javax.swing.text.Document;
+import javax.swing.filechooser.FileSystemView;
 
-import java.awt.*;
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 import java.util.Map;
 
 public class FillFormUI {
@@ -17,43 +12,42 @@ public class FillFormUI {
     public Map<String, String> getMap(){
         JFrame f = new JFrame("ExerciseOptions v1.0");
 
-        JTextField topics = new JTextField(70);
-        JLabel topicLabel = new JLabel("Enter topic:        ");
-        JTextField headers = new JTextField(70);
-        JLabel headerLabel = new JLabel("Enter headers:   ");
-        JTextField message = new JTextField(70);
-        JLabel messageLabel = new JLabel("Enter message:  ");
+        Box topicBox = new JBBox(BoxLayout.X_AXIS);
+        JLabel topicLabel = new JLabel("Enter topic: ");
+        JTextField topicText = new JTextField();
+        topicBox.add(topicLabel);
+        topicBox.add(topicText);
 
-        JFileChooser chooser = new JFileChooser();
-        chooser.setApproveButtonText("New file");
+        Box headerBox = new Box(BoxLayout.X_AXIS);
+        JLabel headerLabel = new JLabel("Enter headers: ");
+        JTextField headerText = new JTextField();
+        headerBox.add(headerLabel);
+        headerBox.add(headerText);
 
-        JPanel topicPanel = new JPanel();
-        topicPanel.add(topicLabel);
-        topicPanel.add(topics);
+        Box messageBox = new JBBox(BoxLayout.X_AXIS);
+        JLabel messageLabel = new JLabel("Enter message: ");
+        JTextField messageText = new JTextField();
+        messageBox.add(messageLabel);
+        messageBox.add(messageText);
 
-        JPanel headersPanel = new JPanel();
-        headersPanel.add(headerLabel);
-        headersPanel.add(headers);
-        JPanel messagePanel = new JPanel();
-        messagePanel.add(messageLabel);
-        messagePanel.add(message);
+        JFileChooser chooser = new JFileChooser(FileSystemView.getFileSystemView().getDefaultDirectory());
 
         int result = JOptionPane.showOptionDialog(f,
-                new Object[] {topicPanel, headersPanel, messagePanel, chooser},
+                new Object[] {topicBox, headerBox, messageBox, chooser},
                 "New Message", JOptionPane.OK_CANCEL_OPTION,
                 JOptionPane.PLAIN_MESSAGE,
                 null, null, null);
 
         if (result == JOptionPane.OK_OPTION)
-            System.out.println(topics.getText() +
-                    " " + headers.getText() +
-                    " " + message.getText() +
+            System.out.println(topicText.getText() +
+                    " " + headerText.getText() +
+                    " " + messageText.getText() +
                     " " + chooser.getCurrentDirectory().getPath());
 
-        Map<String, String> fillField = new LinkedHashMap<>();
-        fillField.put("topic", topics.getText());
-        fillField.put("headers", headers.getText());
-        fillField.put("message", message.getText());
+        Map<String, String> fillField = new HashMap<>();
+        fillField.put("topic", topicText.getText());
+        fillField.put("headers", headerText.getText());
+        fillField.put("message", messageText.getText());
         fillField.put("directory", chooser.getCurrentDirectory().getPath());
 
         return fillField;

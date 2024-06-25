@@ -2,7 +2,6 @@ package com.example.demo.kafka_plugin.service;
 
 import com.example.demo.kafka_plugin.dto.HeadersDTO;
 
-//import com.example.demo.kafka_plugin.dto.MessageDTO;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.apache.kafka.clients.producer.ProducerRecord;
