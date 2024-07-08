@@ -6,7 +6,6 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 
 import org.jetbrains.annotations.NotNull;
 
-
 public class SendAction extends AnAction {
     FormChangerUI changerUI = new FormChangerUI();
     @Override

@@ -1,6 +1,6 @@
 package com.example.demo.kafka_plugin.service;
 
-import lombok.Setter;
+import com.example.demo.kafka_plugin.service.settings.PortSettings;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
@@ -9,18 +9,19 @@ import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 @Component
 public class Producer {
-    @Setter
-    static String port;
+    static PortSettings.State state =
+            Objects.requireNonNull(PortSettings.getInstance().getState());
+    static String port = state.port;
 
-    public void SendMessage(ProducerRecord<String,String> record){
+    public void SendMessage(ProducerRecord<String,String> record) {
         Map<String, Object> props = new HashMap<>();
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, port);
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-        // See https://kafka.apache.org/documentation/#producerconfigs for more properties
 
         var v = Thread.currentThread().getContextClassLoader();
         Thread.currentThread().setContextClassLoader(null);

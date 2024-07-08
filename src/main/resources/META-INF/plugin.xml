@@ -22,10 +22,13 @@
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-        <applicationConfigurable parentId="tools" instance="com.example.demo.kafka_plugin.service.settings.AppSettingsConfigurable"
+        <applicationConfigurable parentId="tools" instance="com.example.demo.kafka_plugin.service.settings.PortSettingsConfigurable"
                                  id="org.intellij.sdk.settings.AppSettingsConfigurable"
                                  displayName="Kafka_plugin: Server port"/>
-        <applicationService serviceImplementation="com.example.demo.kafka_plugin.service.settings.AppSettingsState"/>
+    </extensions>
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService
+                serviceImplementation="com.example.demo.kafka_plugin.service.settings.PortSettings"/>
     </extensions>
     <actions>
         <action id="com.example.demo.kafka_plugin.SendAction" class="com.example.demo.kafka_plugin.SendAction"
