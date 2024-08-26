@@ -11,12 +11,10 @@ public class SendFormUI {
 
     public void showForm() {
         JFrame sendForm = new JFrame();
-
         JFileChooser chooser = new JFileChooser();
         String dir = new File(".").getAbsolutePath();
         chooser.setCurrentDirectory(new File(dir));
         JButton send = new JButton("Send");
-
         send.addActionListener(e -> {
             System.out.println(chooser.getSelectedFile().toString());
             new Producer().SendMessage(messageConverter.read(chooser.getSelectedFile()));
